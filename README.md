@@ -1,7 +1,7 @@
 # Rapyd-Hackathon
 Repository for Rapyd's 2021 Fintech Hackathon
 
-Team members: Gauri Kumari, Rishabh Tiyagi (@rrtiyagii), Zach Linscott (zweatshirt), Yeshwanth Vemula
+Team members: Gauri Kumari, Rishabh Tyagi (@rrtyagii), Zach Linscott (zweatshirt), Yeshwanth Vemula
 Circuit 1
 
 ## Potential ideas for project design:
