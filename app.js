@@ -3,11 +3,30 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const mongoose = require('mongoose');
+
+
 
 // store necessary 'secret' info in your .env file
 const dotenv = require('dotenv').config();
 // mongoURI should be stored in your .env file
 const mongoUri = process.env.mongo_uri;
+// user schema for db (for sign in and login):
+// name, age, username, password, card info to connect to Rapyd API
+
+// connecting to DB
+mongoose.connect(mongoUri, {useNewUrlParser: true, useUnifiedTopology: true})
+  .then(() => console.log('DB connection'))
+  .catch((err) => console.log('Failure to connect: ' + err));
+
+
+
+/* 
+* Schemas and Models
+* - Models allow us to communicate with database collections
+* 
+* 
+*/
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
