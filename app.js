@@ -7,15 +7,12 @@ const logger = require('morgan');
 // store necessary 'secret' info in your .env file
 const dotenv = require('dotenv').config();
 // mongoURI should be stored in your .env file
-const mongoURI = process.env.mongo_uri;
+const mongoUri = process.env.mongo_uri;
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
-
-// connection link to MongoDB
-const mongoURI = 'mongodb+srv://<username>:<password>@1.lvkly.mongodb.net/rapyd-hack?retryWrites=true&w=majority'
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
