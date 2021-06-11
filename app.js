@@ -1,16 +1,13 @@
 const createError = require('http-errors');
 const express = require('express');
+const dotenv = require('dotenv').config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-
-
-// store necessary 'secret' info in your .env file
-const dotenv = require('dotenv').config();
 // mongoURI should be stored in your .env file
-const mongoUri = process.env.mongo_uri;
+const mongoUri = process.env.MONGO_URI;
 // user schema for db (for sign in and login):
 // name, age, username, password, card info to connect to Rapyd API
 
