@@ -2,8 +2,7 @@ import mongoose from 'mongoose';
 
 const userSchema = mongoose.Schema({
     userName: String,
-    firstName: String,
-    lastName: String,
+    name: String,
     dob: String, // date of birth
     createdAt: {
         type: Date,
