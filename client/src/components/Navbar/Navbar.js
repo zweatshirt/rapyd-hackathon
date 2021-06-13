@@ -14,7 +14,7 @@ const Navbar = () => {
                 </Typography>
                 <Toolbar className={classes.btns}>
                     <Button className={classes.helpBtn} color="inherit">Help</Button>
-                    {user ? (
+                    {/* user ? (
                         <div className={classes.profile}>
                             <Avatar className={user.result.name}>
                                 { user.result.name }
@@ -30,7 +30,7 @@ const Navbar = () => {
                             <Button className={classes.signinBtn} variant="contained" color="inherit">Sign in</Button>
                         </div>
 
-                    )}
+                    ) */}
                 </Toolbar>
             </AppBar>
         </div>
