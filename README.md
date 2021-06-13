@@ -8,9 +8,6 @@
 React:
 https://reactjs.org/docs/getting-started.html
 Firebase:
-https://firebase.google.com/docs
-Django:
-https://firebase.google.com/docs
 Rapyd:
 https://docs.rapyd.net/build-with-rapyd/docs/the-rapyd-global-payments-network
 Axios for API GET/Fetch:
