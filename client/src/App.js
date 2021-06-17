@@ -17,11 +17,11 @@ const App = () => {
         <BrowserRouter>
             <Container maxwidth="lg">
                 <Navbar />
-
                 <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/signup" exact component={Signup} />
+                    //<Route path="/" exact component={Home} />
+                    //<Route path="/signup" exact component={Signup} />
                 </Switch>
+                
             </Container>
         </BrowserRouter>
         

@@ -14,6 +14,7 @@ const Navbar = () => {
                 </Typography>
                 <Toolbar className={classes.btns}>
                     <Button className={classes.helpBtn} color="inherit">Help</Button>
+                    <Button component={Link} to="/signup" className={classes.signupBtn} variant="contained" color="inherit">Sign up</Button>
                     {/* user ? (
                         <div className={classes.profile}>
                             <Avatar className={user.result.name}>
@@ -26,8 +27,8 @@ const Navbar = () => {
                         </div>
                     ) : (
                         <div className={classes.loggedOut}>
-                            <Button component={Link} to="/auth" variant="contained" className={classes.signupBtn} variant="contained" color="inherit">Sign up</Button>
-                            <Button className={classes.signinBtn} variant="contained" color="inherit">Sign in</Button>
+                            <Button component={Link} to="/signup" className={classes.signupBtn} variant="contained" color="inherit">Sign up</Button>
+                            <Button component={Link} to="/signin" className={classes.signinBtn} variant="contained" color="inherit">Sign in</Button>
                         </div>
 
                     ) */}

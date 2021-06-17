@@ -1,0 +1,6 @@
+MONGO_URI="mongodb+srv://admin:8wv48EKpV21DkPKk@1.lvkly.mongodb.net/rapyd-hack?retryWrites=true&w=majority"
+
+MODE="development"
+
+CLIENT_ID="631699026876-q4rm3mbnu1ndp1878ajoq258s8sgkk8p.apps.googleusercontent.com"
+CLIENT_SECRET="50Qb68WLKHk6Ksw_hkSgVYtX"
