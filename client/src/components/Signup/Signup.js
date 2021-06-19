@@ -9,27 +9,24 @@ import dotenv from 'dotenv';
 import { useDispatch } from 'react-redux';
 
 export const Signup = () => {
-    const [isSignup, setIsSignup] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
-    
-    dotenv.config({ path: 'client/.env' });
-
-    // client ID for Google OAuth
-    const client_id = process.env.REACT_APP_CLIENT_ID;
-
     const classes = useStyles;
     const history = useHistory();
-    // FIX:
-    const dispatch = useDispatch;
+    const dispatch = useDispatch();
+    const [isSignup, setIsSignup] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
     const switchMode = () => {
-        setIsSignup((prev) => !prev);
+        handleSubmit(false);
         handleShowPassword(false);
     }
-    const handleSubmit = () => {
-        setIsSignup((prevIsSignup) => !prevIsSignup)
-    }
+
+    // client ID for Google OAuth
+    dotenv.config({ path: 'client/.env' });
+    const client_id = process.env.REACT_APP_CLIENT_ID;
+
+
+    const handleSubmit = () => setIsSignup((prevIsSignup) => !prevIsSignup)
 
     const handleChange = () => {
     }
@@ -86,13 +83,13 @@ export const Signup = () => {
                     <GoogleLogin
                         clientId={client_id}
                         render={(renderProps) => (
-                        <Button className={classes.googleBtn}
-                            color="primary"
-                            fullWidth onClick={renderProps.onClick}
-                            disabled={renderProps.disabled}  
-                            variant="contained">
-                                Google Sign in
-                        </Button>
+                            <Button className={classes.googleBtn}
+                                color="primary"
+                                fullWidth onClick={renderProps.onClick}
+                                disabled={renderProps.disabled}  
+                                variant="contained">
+                                    Google Sign in
+                            </Button>
                         // Once GoogleIcon component is created replace above with:
                         // <Button className={classes.googleBtn}
                         //     color="primary"
