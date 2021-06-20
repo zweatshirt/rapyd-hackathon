@@ -1,6 +1,6 @@
 import React from 'react';
 
-/* React componenets */
+/* React components */
 import { Container, Grow, Grid } from '@material-ui/core';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -18,10 +18,9 @@ const App = () => {
             <Container maxwidth="lg">
                 <Navbar />
                 <Switch>
-                    //<Route path="/" exact component={Home} />
-                    //<Route path="/signup" exact component={Signup} />
+                    <Route path="/" exact component={Home} />
+                    <Route path="/signup" exact component={Signup} />
                 </Switch>
-                
             </Container>
         </BrowserRouter>
         
