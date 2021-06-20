@@ -16,8 +16,9 @@ export const Signup = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+    const handleSubmit = () => setIsSignup((prevIsSignup) => !prevIsSignup);
     const switchMode = () => {
-        handleSubmit(false);
+        setIsSignup((prevIsSignup) => !prevIsSignup);
         handleShowPassword(false);
     }
 
@@ -25,8 +26,6 @@ export const Signup = () => {
     dotenv.config({ path: 'client/.env' });
     const client_id = process.env.REACT_APP_CLIENT_ID;
 
-
-    const handleSubmit = () => setIsSignup((prevIsSignup) => !prevIsSignup)
 
     const handleChange = () => {
     }

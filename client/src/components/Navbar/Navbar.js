@@ -1,11 +1,16 @@
 import React, { useState, useEffect} from 'react';
 import { AppBar, Typography, Button, Toolbar, Avatar } from '@material-ui/core';
 import useStyles from './styles';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+
 
 const Navbar = () => {
     const classes = useStyles();
-    
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const location = useLocation();
     // user state
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
     // useEffect hook for user 
@@ -14,8 +19,15 @@ const Navbar = () => {
 
         // Check for JWT as well:
         setUser(JSON.parse(localStorage.getItem('profile')))
-    
-    })
+    }, [location])
+
+    // dispatch SIGNOUT to reducers, clearing local storage and user auth data
+    // Then, push back to home and clear user data
+    const signout = () => {
+        dispatch({type: 'SIGNOUT'})
+        history.push('/')
+        setUser(null)
+    }
 
     return (
         <div className={classes.root}>
@@ -25,16 +37,17 @@ const Navbar = () => {
                 </Typography>
                 <Toolbar className={classes.btns}>
                     <Button className={classes.helpBtn} color="inherit">Help</Button>
-                    <Button component={Link} to="/signup" className={classes.signupBtn} variant="contained" color="inherit">Sign up</Button>
-                    {/* user ? (
+                 
+                    { user ? (
                         <div className={classes.profile}>
-                            <Avatar className={user.result.name}>
-                                { user.result.name }
-                            </Avatar>
+                            { user.profObj.name }
+                            {/* <Avatar className={user.profObj.name}>
+                                { user.profObj.name }
+                            </Avatar> */}
                             <Typography className={classes.userName} variant="h6">
-                                { user.result.userName}
+                                { user.profObj.userName}
                             </Typography>
-                            <Button className={classes.logoutBtn} variant="contained" color="inherit">Sign out</Button>
+                            <Button className={classes.logoutBtn} variant="contained" color="inherit" onClick={signout}>Sign out</Button>
                         </div>
                     ) : (
                         <div className={classes.loggedOut}>
@@ -42,7 +55,7 @@ const Navbar = () => {
                             <Button component={Link} to="/signin" className={classes.signinBtn} variant="contained" color="inherit">Sign in</Button>
                         </div>
 
-                    ) */}
+                    )}
                 </Toolbar>
             </AppBar>
         </div>

@@ -1,10 +1,10 @@
 import React from 'react';
 import { Image } from 'react';
 
-const Post = ({imageSource}) => {
+const Post = ({imageSource = null}) => {
   return (
     <>
-
+      {/* <Image source={imageSource} /> */}
     </>
 
     // <div
@@ -26,7 +26,7 @@ const Post = ({imageSource}) => {
     //     {<Image source={imageSource}/>} 
     //   </div>
     // </div>
-  
+    
        )
 }
   
