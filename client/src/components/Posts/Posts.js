@@ -5,7 +5,7 @@ const Posts = () => {
     return (
         <>
             <h1>Posts</h1>
-            <Post />
+            <Post imageSource = "client/public/logo512.png"/>
             <Post />
         </>
     );
