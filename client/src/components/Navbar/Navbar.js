@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 import { AppBar, Typography, Button, Toolbar, Avatar } from '@material-ui/core';
 import useStyles from './styles';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const classes = useStyles();
+    
+    // user state
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+    // useEffect hook for user 
+    useEffect(() => {
+        const token = user?.token;
+
+        // Check for JWT as well:
+        setUser(JSON.parse(localStorage.getItem('profile')))
+    
+    })
 
     return (
         <div className={classes.root}>

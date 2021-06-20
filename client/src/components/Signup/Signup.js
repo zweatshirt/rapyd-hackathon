@@ -4,41 +4,54 @@ import LockIcon from '@material-ui/icons/Lock';
 import Input from './Input';
 import { GoogleLogin } from 'react-google-login';
 import useStyles from './styles';
+import { useHistory } from 'react-router-dom'
 import dotenv from 'dotenv';
-
+import { useDispatch } from 'react-redux';
 
 export const Signup = () => {
+    const classes = useStyles;
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [isSignup, setIsSignup] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+    const switchMode = () => {
+        handleSubmit(false);
+        handleShowPassword(false);
+    }
+
+    // client ID for Google OAuth
     dotenv.config({ path: 'client/.env' });
     const client_id = process.env.REACT_APP_CLIENT_ID;
-    const classes = useStyles;
-    const [isSignup, setIsSignup] = useState(false);
 
-    const [showPassword, setShowPassword] = useState(false);
-    // toggles password visibility on and off
-    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+
+    const handleSubmit = () => setIsSignup((prevIsSignup) => !prevIsSignup)
+
     const handleChange = () => {
-
-
-    }
-    const handleSubmit = () => {
-        setIsSignup((prevIsSignup) => !prevIsSignup)
     }
 
-    const googleSuccess = () => {
+    // callbacks to handle on success and failure events
+    // specifically related to Google sign-in/sign-up
+    const googleSuccess = async (res) => {
+        const profObj = res?.profileObj;
+        const token = res?.tokenId;
+        try {
+            dispatch({'type': 'AUTH', data: {profObj, token}});
+            history.push('/');
+        } catch (error) {
+            console.log(error);
+        }
     }
-    const googleFailure = () => {
+    const googleFailure = (error) => {
+        console.log(error);
         console.log("Google sign in failed. Please try again later.");
-    }
-
-    const switchMode = () => {
-        setIsSignup((prev) => !prev);
-        handleShowPassword(false);
     }
 
     return (
         <Container component="main" maxWidth="sm">
             <Paper className={classes.paper} elevation={3}>
-                <Avatar className={classes.avatar}>
+                 <Avatar className={classes.avatar}>
                     <LockIcon />
                 </Avatar>
                 <Typography variant="h5">{ isSignup ? 'Sign up' : 'Sign in' }</Typography>
@@ -70,13 +83,13 @@ export const Signup = () => {
                     <GoogleLogin
                         clientId={client_id}
                         render={(renderProps) => (
-                        <Button className={classes.googleBtn}
-                            color="primary"
-                            fullWidth onClick={renderProps.onClick}
-                            disabled={renderProps.disabled}  
-                            variant="contained">
-                                Google Sign in
-                        </Button>
+                            <Button className={classes.googleBtn}
+                                color="primary"
+                                fullWidth onClick={renderProps.onClick}
+                                disabled={renderProps.disabled}  
+                                variant="contained">
+                                    Google Sign in
+                            </Button>
                         // Once GoogleIcon component is created replace above with:
                         // <Button className={classes.googleBtn}
                         //     color="primary"
