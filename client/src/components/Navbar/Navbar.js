@@ -13,6 +13,7 @@ const Navbar = () => {
     const location = useLocation();
     // user state
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
+
     // useEffect hook for user 
     useEffect(() => {
         const token = user?.token;
@@ -50,6 +51,8 @@ const Navbar = () => {
                             <Button className={classes.logoutBtn} variant="contained" color="inherit" onClick={signout}>Sign out</Button>
                         </div>
                     ) : (
+
+
                         <div className={classes.loggedOut}>
                             <Button component={Link} to="/signup" className={classes.signupBtn} variant="contained" color="inherit">Sign in</Button>
                         </div>

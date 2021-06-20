@@ -8,15 +8,20 @@ import { useHistory } from 'react-router-dom'
 import dotenv from 'dotenv';
 import { useDispatch } from 'react-redux';
 
+const initialUserState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''}
+
 export const Signup = () => {
+
     const classes = useStyles;
     const history = useHistory();
     const dispatch = useDispatch();
+
     const [isSignup, setIsSignup] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
+    const [formData, setFormData] = useState(initialUserState);
 
     const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
-    const handleSubmit = () => setIsSignup((prevIsSignup) => !prevIsSignup);
+
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
         handleShowPassword(false);
@@ -27,11 +32,18 @@ export const Signup = () => {
     const client_id = process.env.REACT_APP_CLIENT_ID;
 
 
-    const handleChange = () => {
+    const handleChange = (e) => {
+        setFormData({... formData, [e.target.name]: e.target.value})
+        console.log(formData)
     }
 
-    // callbacks to handle on success and failure events
-    // specifically related to Google sign-in/sign-up
+    // regular sign in button event listener
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+
+    // Google sign in success and failure event handlers
     const googleSuccess = async (res) => {
         const profObj = res?.profileObj;
         const token = res?.tokenId;
