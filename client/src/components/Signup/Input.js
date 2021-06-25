@@ -3,6 +3,7 @@ import { TextField, Grid, InputAdornment, IconButton } from '@material-ui/core';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
+
 const Input = ({ name, label, half, autoFocus, type, handleChange, handleShowPassword }) => {
 
     return (
@@ -24,7 +25,6 @@ const Input = ({ name, label, half, autoFocus, type, handleChange, handleShowPas
                         </InputAdornment>
                     )
                 } : null }
-               
             />
         </Grid>
     )

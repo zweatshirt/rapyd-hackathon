@@ -7,6 +7,7 @@ import useStyles from './styles';
 import { useHistory } from 'react-router-dom'
 import dotenv from 'dotenv';
 import { useDispatch } from 'react-redux';
+import { signin, signup } from '../../actions/auth'
 
 const initialUserState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''}
 
@@ -24,7 +25,7 @@ export const Signup = () => {
 
     const switchMode = () => {
         setIsSignup((prevIsSignup) => !prevIsSignup);
-        handleShowPassword(false);
+        setShowPassword(false);
     }
 
     // client ID for Google OAuth
@@ -37,9 +38,12 @@ export const Signup = () => {
         console.log(formData)
     }
 
-    // regular sign in button event listener
+    // regular sign in button event handler
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (isSignup)
+            dispatch(signup(formData, history))
+        else dispatch(signin(formData, history))
     }
 
 
