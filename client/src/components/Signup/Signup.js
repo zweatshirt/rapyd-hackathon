@@ -42,8 +42,8 @@ export const Signup = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isSignup)
-            dispatch(signup(formData, history))
-        else dispatch(signin(formData, history))
+            dispatch(signup(formData, history));
+        else dispatch(signin(formData, history));
     }
 
 

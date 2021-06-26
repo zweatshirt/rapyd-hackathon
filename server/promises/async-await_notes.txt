@@ -1,0 +1,43 @@
+Notes to understand how promises work, along with async and its inner await keyword.
+
+async function:
+    function declared with the async keyword, await is permitted within
+    said function. These keywords enable asnychronous and promise-based behavior
+    in a 'cleaner style' avoiding explicitly configured promise chains.
+    (Paraphrased from Mozilla https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+    - can also be written as an immediately invoked function expression,
+    or normal expressions, along with arrow functions.
+    expressions allow you to create anonymous functions
+
+What is a promise?
+    A promise is an object that may produce a single value
+    some time in the future
+
+constructor syntax:
+let promise = new Promise(function(resolve, reject) {
+    // executor (producing code)
+    // resolve(value) if job finished successfully
+    // reject(err) if an error occurs
+})
+
+Promise objects have these properties:
+state - pending at first, then fulfilled or rejected
+result - initially undefined, beocmes the value from resolve(value)
+or some error returned from reject(err)
+
+- executor calls only one resolve or one reject and the state change is final.
+- state and result of the Promise obj are purely internal, which leads to consumers:
+
+promise.then(
+    function(result) {} // handlers once promise is resolved
+    function (error) {} 
+)
+
+Async functions take the structure:
+
+type var = async (req, res) => {    // in the case of controllers: pass in request and response
+    return var = await user.findOne({ email });
+};
+
+Simpler example:
+    let hello = async () => { return "hello" };
