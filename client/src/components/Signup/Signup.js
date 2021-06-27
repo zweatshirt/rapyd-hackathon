@@ -8,6 +8,9 @@ import { useHistory } from 'react-router-dom'
 import dotenv from 'dotenv';
 import { useDispatch } from 'react-redux';
 import { signin, signup } from '../../actions/auth'
+import ReactDOM from 'react-dom';
+import FacebookLogin from 'react-facebook-login';
+
 
 const initialUserState = { firstName: '', lastName: '', email: '', password: '', confirmPassword: ''}
 
@@ -31,6 +34,7 @@ export const Signup = () => {
     // client ID for Google OAuth
     dotenv.config({ path: 'client/.env' });
     const client_id = process.env.REACT_APP_CLIENT_ID;
+    const facebook_App_ID = process.env.REACT_APP_FACEBOOK_CLIENT_APP_ID; 
 
 
     const handleChange = (e) => {
@@ -61,6 +65,10 @@ export const Signup = () => {
     const googleFailure = (error) => {
         console.log(error);
         console.log("Google sign in failed. Please try again later.");
+    }
+
+    const responseFacebook = (response)=>{
+        console.log(response); 
     }
 
     return (
@@ -117,6 +125,16 @@ export const Signup = () => {
                         onFailure={googleFailure}
                         cookiePolicy="single_host_origin"
                     />
+
+                    <FacebookLogin
+                        appId={facebook_App_ID}
+                        autoLoad={true}
+                        fields="name,email,picture"
+                        // onClick={componentClicked}
+                        callback={responseFacebook}
+                        icon="fa-facebook"
+                    />
+
                     <Grid container justify="center">
                         <Grid item>
                             <Button onClick={switchMode}>
