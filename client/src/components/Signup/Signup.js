@@ -34,7 +34,7 @@ export const Signup = () => {
 
 
     const handleChange = (e) => {
-        setFormData({... formData, [e.target.name]: e.target.value})
+        setFormData({ ...formData, [e.target.name]: e.target.value })
         console.log(formData)
     }
 
@@ -86,7 +86,7 @@ export const Signup = () => {
                         {   // only ask for password confirmation on signup
                             isSignup && (
                                 <>
-                                    <Input name="confirmPass" label="Confirm Password" handleChange={handleChange} half type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
+                                    <Input name="confirmPassword" label="Confirm Password" handleChange={handleChange} half type={showPassword ? "text" : "password"} handleShowPassword={handleShowPassword} />
                                 </>
                             )
                         }

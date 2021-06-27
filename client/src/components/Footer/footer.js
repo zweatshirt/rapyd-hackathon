@@ -10,7 +10,7 @@ import {
   } from './footerstyle'
 
 
-const copyright = <p> &copy; 2021 GRIZLY</p>; 
+const copyright = <p> &copy; 2021 GRYZZLY</p>; 
 
 const Footer = () => {
     return ( <Box>
@@ -26,7 +26,7 @@ const Footer = () => {
             <Row>
                 
                 <Column>
-                    <Header>Grizly</Header>
+                    <Header>GRYZZLY</Header>
                     <FooterLink href="https://github.com/zweatshirt/rapyd-hackathon">Github Repo</FooterLink>
                 </Column> 
 
