@@ -31,6 +31,7 @@ app.use(express.urlencoded({
 }));
 app.use(cors());
 app.use('/posts', postRoutes);
+app.use('/user', postRoutes);
 
 
 // grab connection uri from .env file

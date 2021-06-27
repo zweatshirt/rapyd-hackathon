@@ -1,6 +1,6 @@
 import React, { useState, useEffect} from 'react';
 import { AppBar, Typography, Button, Toolbar, Avatar } from '@material-ui/core';
-import useStyles from './styles';
+import useStyles from './styles'; // module that contains all the CSS styling for component
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -16,8 +16,8 @@ const Navbar = () => {
 
     // useEffect hook for user 
     useEffect(() => {
-        const token = user?.token;
-
+        // const token = user?.token;
+        // finish
         // Check for JWT as well:
         setUser(JSON.parse(localStorage.getItem('profile')))
     }, [location])
