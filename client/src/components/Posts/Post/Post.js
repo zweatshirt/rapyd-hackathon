@@ -4,7 +4,7 @@ import { Container, Grid } from '@material-ui/core';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Button, Card} from 'react-bootstrap'; 
 
-const Post = () => {
+const Post = ({imgSrc, PostTitle, PostDescription}) => {
   return (    
     <Grid container
           direction="row"
@@ -12,15 +12,16 @@ const Post = () => {
           alignItems="center">
 
       <Card style={{ width: '18rem' }}>
-        <Card.Img variant="top" src="" />
+        <Card.Img variant="top" src={imgSrc} />
           
         <Card.Body>
-          <Card.Title>Post Title</Card.Title>
+          <Card.Title>{PostTitle}</Card.Title>
             <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of the card's content.
+              {PostDescription}
             </Card.Text>
               
-          <Button variant="success">Trade</Button>
+          <Button alignItems="baseline" variant="success">Trade</Button>
+          <Button alignItems="baseline" variant="light">Add to Cart</Button>
         </Card.Body>
       </Card>
     </Grid>
