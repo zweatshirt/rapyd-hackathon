@@ -1,9 +1,9 @@
-import bcrypt from 'brcyptjs';
-import token from 'jsonwebtoken'
-import User from '../models/User.js';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken'
+import User from '../models/user.js';
 import dotenv from 'dotenv'
 // grabs User schema
-import User from '../models/User.js'
+
 
 dotenv.config();
 
@@ -43,7 +43,7 @@ export const signup = async (req, res) => {
             const hashedPass = await bcrypt.hash(password, 12);
             const resultingUser = await User.create({ name: `${firstName} ${lastName}`, email, password: hashedPass });
             const token = jwt.sign(
-                { email: resultingUser.email, id: resultingUser.id }, process.env.JWT_SECRET, {expiresIn: "2h"}
+                { email: resultingUser.email, id: resultingUser._id }, process.env.JWT_SECRET, {expiresIn: "2h"}
             );
             res.status(200).json({ result: resultingUser, token});
         }

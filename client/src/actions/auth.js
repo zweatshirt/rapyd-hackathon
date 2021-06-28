@@ -1,5 +1,5 @@
 import { AUTH } from '../constants/actionTypes'
-import { signIn,signUp } from '../api/index.js'
+import { signIn, signUp } from '../api/index.js'
 
 export const signin = (formData, history) => async (dispatch) => {
     try {

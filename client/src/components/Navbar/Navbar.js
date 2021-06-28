@@ -54,7 +54,7 @@ const Navbar = () => {
 
 
                         <div className={classes.loggedOut}>
-                            <Button component={Link} to="/signup" className={classes.signupBtn} variant="contained" color="inherit">Sign in</Button>
+                            <Button component={Link} to="/auth" className={classes.signupBtn} variant="contained" color="inherit">Sign in</Button>
                         </div>
 
                     )}

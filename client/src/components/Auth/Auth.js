@@ -16,7 +16,7 @@ const initialUserState = { firstName: '', lastName: '', email: '', password: '',
 
 export const Signup = () => {
 
-    const classes = useStyles;
+    const classes = useStyles();
     const history = useHistory();
     const dispatch = useDispatch();
 

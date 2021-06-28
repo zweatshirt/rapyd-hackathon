@@ -3,7 +3,7 @@ import cors from 'cors';
 // for database access
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import postRoutes from './routes/posts.js';
+import userRoutes from './routes/user.js';
 import morgan from 'morgan';
 import exphbs from 'express-handlebars';
 
@@ -27,11 +27,12 @@ app.set('view engine', '.hbs');
 
 app.use(express.json());
 app.use(express.urlencoded({
-  extended: true
+  extended: true 
 }));
 app.use(cors());
-app.use('/posts', postRoutes);
-app.use('/user', postRoutes);
+
+
+app.use('/user', userRoutes);
 
 
 // grab connection uri from .env file
