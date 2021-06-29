@@ -1,4 +1,5 @@
 import React from 'react'; 
+import FooterUl from './FooterUl/FooterUl';
 
 import {
     Box,
@@ -7,6 +8,7 @@ import {
     Column,
     FooterLink,
     Header,
+    FooterLi
   } from './footerstyle'
 
 
@@ -26,30 +28,24 @@ const Footer = () => {
             <Row>
                 
                 <Column>
-                    <Header>GRYZZLY</Header>
+                    <Header>Gryzzly</Header>
                     <FooterLink href="https://github.com/zweatshirt/rapyd-hackathon">Github Repo</FooterLink>
                 </Column> 
 
                 <Column>
                     <Header>Team</Header>
-                    <FooterLink href="https://github.com/zweatshirt">Zachery</FooterLink>
+                    <FooterLink href="https://github.com/zweatshirt">Zach</FooterLink>
                     <FooterLink >Gauri</FooterLink>
                     <FooterLink href="https://github.com/rrtyagii">Rishabh</FooterLink>
                     <FooterLink>Yeshwanth</FooterLink>
                 </Column>
 
-                <Column>
-                    <Header> What it does</Header>
-                    <FooterLink>
-                        Just some random text to fillup the third column
-                    </FooterLink>
-                </Column>
 
                 <Column>
-                    <Header> What it does</Header>
-                    <FooterLink>
-                        Just some random text to fillup the third column
-                    </FooterLink>
+                    <Header> How we built it</Header>
+                    <FooterLi>
+                        MERN stack: MongoDB, Express, React, Node and a collection of libraries.
+                    </FooterLi>
                 </Column>
 
 

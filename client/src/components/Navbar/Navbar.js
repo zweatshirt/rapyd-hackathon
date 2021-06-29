@@ -37,17 +37,18 @@ const Navbar = () => {
                     Gryzzly
                 </Typography>
                 <Toolbar className={classes.btns}>
-                    <Button className={classes.helpBtn} color="inherit">Help</Button>
                  
                     { user ? (
                         <div className={classes.profile}>
-                            { user.profObj.name }
-                            {/* <Avatar className={user.profObj.name}>
-                                { user.profObj.name }
-                            </Avatar> */}
+
                             <Typography className={classes.userName} variant="h6">
-                                { user.profObj.userName}
+                                { user.profObj ? (
+                                    "Welcome, " + user.profObj.name
+                                ) : (
+                                    " Welcome, " + user.result.name
+                                )}
                             </Typography>
+                            <Button component={Link} to="/profile" className={classes.profBtn} color="inherit">Your Profile</Button>
                             <Button className={classes.logoutBtn} variant="contained" color="inherit" onClick={signout}>Sign out</Button>
                         </div>
                     ) : (

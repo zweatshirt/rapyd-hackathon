@@ -23,15 +23,17 @@ export const Container = styled.div`
 
 export const Column = styled.div`
     display: flex; 
+    flex-wrap: wrap;
     flex-direction: column; 
     text-align: left; 
-    margin-left: 70px 
+    margin-left: 70px;
+     
 `; 
 
 export const Header = styled.div`
     font-size: 21px; 
     color: #fff; 
-    margin-bottom: 8px; 
+    margin-bottom: 4px; 
     font-weight: bold; 
 `; 
 
@@ -45,10 +47,18 @@ export const Row = styled.div`
     }
 `; 
 
+
+export const FooterLi = styled.div`
+    color: #fff; 
+    margin-bottom: 6px; 
+    font-size: 15px;
+
+`; 
+
 export const FooterLink = styled.a`
     color: #fff; 
     margin-bottom: 6px; 
-    font-size: 15px; 
+    font-size: 15px;
     text-decoration: none; 
 
     &:hover{
